@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
-router.get("/health", (req, res) => {
-  res.status(200).json({
-    status: "OK",
-    message: "Backend API is working successfully"
-  });
-});
+
+const { healthCheck } = require("../controllers/healthController");
+
+router.get("/health", healthCheck);
 
 module.exports = router;
